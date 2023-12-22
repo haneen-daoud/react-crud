@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Input from "../../shared/Input";
 import { uservalidationdata } from "../../validation/uservalidation";
-import '../../components/users/Create.css'
 
+import '../css/creat-input.css'
+import image_url from "./image/Pink_Panther.png"
 export default function Create() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -54,14 +55,17 @@ let [errorBack,setErrorBack]= useState('');
   return (
     <div className="container-fluid">
       <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-            <a href="/"
-              className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 left-menu position-relative">
+          <div className="w-100 position-absolute Menu-item ">
+              <a href="/"
+              className="d-flex align-items-center pb-3 mb-md-0 me-md-auto  text-decoration-none  w-100">
               <span className="fs-5 d-none d-sm-inline">Menu</span>
-            </a>
+              </a>
+            </div>
+          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          
             <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5"
               id="menu">
               <li className="nav-item">
                 <a href="#" className="nav-link align-middle px-0">
@@ -84,13 +88,13 @@ let [errorBack,setErrorBack]= useState('');
                   <li className="w-100">
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">Item</span> 1{" "}
+                      <span className="d-none d-sm-inline">Item 1</span> {" "}
                     </a>
                   </li>
                   <li>
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">Item</span> 2{" "}
+                      <span className="d-none d-sm-inline">Item 2</span> {" "}
                     </a>
                   </li>
                 </ul>
@@ -185,7 +189,7 @@ let [errorBack,setErrorBack]= useState('');
                 aria-expanded="false"
               >
                 <img
-                  src="https://github.com/mdo.png"
+                  src={image_url}
                   alt="hugenerd"
                   width={30}
                   height={30}
@@ -193,7 +197,7 @@ let [errorBack,setErrorBack]= useState('');
                 />
                 <span className="d-none d-sm-inline mx-1">loser</span>
               </a>
-              <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
+              <ul className="dropdown-menu dropdown-menu-white text-small shadow text-black">
                 <li>
                   <a className="dropdown-item" href="#">
                     New project...
@@ -221,18 +225,21 @@ let [errorBack,setErrorBack]= useState('');
             </div>
           </div>
         </div>
-        <div className="col py-3">
-          <form onSubmit={sendData}>
-            {errorBack && <p className="text text-danger">{errorBack}</p>}
-            <Input errors={errors} id={"name"} type={"name"} name={"name"} titel={"name"} getUser={getUser}/>
-            <Input errors={errors} id={"email"} type={"email"} name={"email"} titel={"email"} getUser={getUser}/>
-            <Input errors={errors} id={"password"} type={"password"} name={"password"} titel={"password"} getUser={getUser}/>
 
-            <div className="mb-3">
+        <div className="col py-5  container ">
+          <form onSubmit={sendData} className=" form-group  form-container">
+            <h1>Welcome</h1>
+            {errorBack && <p className="text text-danger fs-6">{errorBack}</p>}
+            <Input errors={errors} id={"name"} type={"name"} name={"name"} titel={"Name"} getUser={getUser}/>
+            <Input errors={errors} id={"email"} type={"email"} name={"email"} titel={"Email"} getUser={getUser}/>
+            <Input errors={errors} id={"password"} type={"password"} name={"password"} titel={"Password"} getUser={getUser}/>
+
+            <div className="mb-3 submit">
               <input type="submit" className="form-control" id="submit" />
             </div>
           </form>
         </div>
+
       </div>
     </div>
   );

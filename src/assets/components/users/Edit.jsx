@@ -7,8 +7,8 @@ import Input from "../../shared/Input"
 import Loader from '../../components/users/Loader'
 import { useParams } from "react-router-dom";
 import { uservalidationdata } from "../../validation/uservalidation";
-
-
+import '../css/creat-input.css'
+import image_url from "./image/Pink_Panther.png"
 export default function Edit() {
     const {id}=useParams('id');
     let [errors, setErrors] = useState({
@@ -70,18 +70,18 @@ export default function Edit() {
   return (
     <div className="container-fluid">
       <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-            <a
-              href="/"
-              className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-            >
+      <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 left-menu position-relative">
+          <div className="w-100 position-absolute Menu-item ">
+              <a href="/"
+              className="d-flex align-items-center pb-3 mb-md-0 me-md-auto  text-decoration-none  w-100">
               <span className="fs-5 d-none d-sm-inline">Menu</span>
-            </a>
+              </a>
+            </div>
+          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          
             <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-              id="menu"
-            >
+              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5"
+              id="menu">
               <li className="nav-item">
                 <a href="#" className="nav-link align-middle px-0">
                   <i className="fs-4 bi-house" />{" "}
@@ -89,11 +89,9 @@ export default function Edit() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#submenu1"
+                <a href="#submenu1"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle"
-                >
+                  className="nav-link px-0 align-middle">
                   <i className="fs-4 bi-speedometer2" />{" "}
                   <span className="ms-1 d-none d-sm-inline">Dashboard</span>{" "}
                 </a>
@@ -105,13 +103,13 @@ export default function Edit() {
                   <li className="w-100">
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">Item</span> 1{" "}
+                      <span className="d-none d-sm-inline">Item 1</span> {" "}
                     </a>
                   </li>
                   <li>
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">Item</span> 2{" "}
+                      <span className="d-none d-sm-inline">Item 2</span> {" "}
                     </a>
                   </li>
                 </ul>
@@ -126,8 +124,7 @@ export default function Edit() {
                 <a
                   href="#submenu2"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle "
-                >
+                  className="nav-link px-0 align-middle " >
                   <i className="fs-4 bi-bootstrap" />{" "}
                   <span className="ms-1 d-none d-sm-inline">Bootstrap</span>
                 </a>
@@ -207,7 +204,7 @@ export default function Edit() {
                 aria-expanded="false"
               >
                 <img
-                  src="https://github.com/mdo.png"
+                  src={image_url}
                   alt="hugenerd"
                   width={30}
                   height={30}
@@ -215,7 +212,7 @@ export default function Edit() {
                 />
                 <span className="d-none d-sm-inline mx-1">loser</span>
               </a>
-              <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
+              <ul className="dropdown-menu dropdown-menu-white text-small shadow text-black">
                 <li>
                   <a className="dropdown-item" href="#">
                     New project...
@@ -243,6 +240,7 @@ export default function Edit() {
             </div>
           </div>
         </div>
+
         <div className="col py-3">
           <form onSubmit={sendData}>
             {errorBack&&<p className="text-danger">{errorBack}</p>}
